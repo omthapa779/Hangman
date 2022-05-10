@@ -1,0 +1,110 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="styles.css">
+        <link rel="icon" type="image/x-icon" href="landing.gif">
+        <title>HANGMAN</title>
+    </head>
+    <body onload="loading()">
+     <div class="main">
+        <div id="loader">
+            <h1 class="loading_text">HANGMAN</h1>
+            <div class="outside_loader">
+            <div class="inside_loader">
+                Loading...
+            </div>
+        </div>
+        </div>
+         <div id="all" class="animation_all" style="display: none;">
+         <div class="bluish"></div>
+         <div class="back">
+             <div class="overlay1"></div>
+             <div class="overlay2"></div>
+             <h1 class="title">HANGMaN</h1>
+             <h1 class="title2">From: OM THAPA</h1>
+         </div>
+         <button class="start" type="button" onclick="startgame()">PLAY!</button>
+         <div class="front">
+            <img src="landing.gif">
+         </div>
+         <button onclick="openFullscreen(),closeFullscreen()" class="go_full">
+            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="white" class="bi bi-fullscreen" viewBox="0 0 16 16">
+                <path d="M1.5 1a.5.5 0 0 0-.5.5v4a.5.5 0 0 1-1 0v-4A1.5 1.5 0 0 1 1.5 0h4a.5.5 0 0 1 0 1h-4zM10 .5a.5.5 0 0 1 .5-.5h4A1.5 1.5 0 0 1 16 1.5v4a.5.5 0 0 1-1 0v-4a.5.5 0 0 0-.5-.5h-4a.5.5 0 0 1-.5-.5zM.5 10a.5.5 0 0 1 .5.5v4a.5.5 0 0 0 .5.5h4a.5.5 0 0 1 0 1h-4A1.5 1.5 0 0 1 0 14.5v-4a.5.5 0 0 1 .5-.5zm15 0a.5.5 0 0 1 .5.5v4a1.5 1.5 0 0 1-1.5 1.5h-4a.5.5 0 0 1 0-1h4a.5.5 0 0 0 .5-.5v-4a.5.5 0 0 1 .5-.5z"/>
+            </svg>
+         </button>
+        </div>
+        <div id="beck" style="display:none;">
+            <FORM NAME="f" class="table">
+                <center class="go_play">
+                  <h1 class="play_main">Hangman</h1>
+                <TABLE BGCOLOR=white BORDER=1 class="play_table">
+                <TR>
+                  <div class="score_board">
+                    <br>
+                  <h3>
+                  Score:
+                  </h3>
+                  <INPUT TYPE=TEXT NAME="score" VALUE="0" onfocus="score.blur();" SIZE=2 style="text-align: center; background: none; border:none; color:white; font-size: 2vw; font-family: agency fb;">
+                   </div>
+                   <BR>
+                    <div class="score_board">
+                        <br>
+                      <h3 style="font-size: 1vw;">
+                      Fails(6):
+                      </h3>
+                 <INPUT TYPE=TEXT NAME="lives" VALUE="0" onfocus="lives.blur();" SIZE=2 style="text-align: center; background: none; border:none; color:white; font-family: agency fb; font-size: 2vw;">  
+                    </div>
+                     <div class="word_blank">
+                   <INPUT TYPE=TEXT NAME="word" VALUE="" onfocus="word.blur();" SIZE=25 style="background: none; border:none; color: white; font-size: 3vw; font-family: agency fb;">
+                   </div>
+                   <INPUT TYPE=TEXT NAME="tried" VALUE="Click start to get a word." onfocus="tried.blur();" SIZE=25 class="input">  
+                  </TD>
+                   <input type= button onclick="new_word(this.form);" VALUE=" Start " class="go_button">
+                    <span>
+                    </span>
+                </input>  
+                </TR>
+                <TR>
+                  <div class="letters">
+                  <TD><INPUT TYPE=BUTTON VALUE=" A "   onclick="seek('A');" style="font-family: intro; background:none; color: white; font-size: 1vw;"></TD>
+                  <TD><INPUT TYPE=BUTTON VALUE=" B "   onclick="seek('B');" style="font-family: intro; background:none; color: white; font-size: 1vw;"></TD>
+                  <TD><INPUT TYPE=BUTTON VALUE=" C "   onclick="seek('C');" style="font-family: intro; background:none; color: white; font-size: 1vw;"></TD>
+                  <TD><INPUT TYPE=BUTTON VALUE=" D "   onclick="seek('D');" style="font-family: intro; background:none; color: white; font-size: 1vw;"></TD>
+                  <TD><INPUT TYPE=BUTTON VALUE=" E "   onclick="seek('E');" style="font-family: intro; background:none; color: white; font-size: 1vw;"></TD>
+                  <TD><INPUT TYPE=BUTTON VALUE=" F "   onclick="seek('F');" style="font-family: intro; background:none; color: white; font-size: 1vw;"></TD>
+                  <TD><INPUT TYPE=BUTTON VALUE=" G "   onclick="seek('G');" style="font-family: intro; background:none; color: white; font-size: 1vw;"></TD>
+                  <TD><INPUT TYPE=BUTTON VALUE=" H "   onclick="seek('H');" style="font-family: intro; background:none; color: white; font-size: 1vw;"></TD>
+                  <TD><INPUT TYPE=BUTTON VALUE=" I   " onclick="seek('I');" style="font-family: intro; background:none; color: white; font-size: 1vw;"></TD>
+                  <TD><INPUT TYPE=BUTTON VALUE=" J  "  onclick="seek('J');" style="font-family: intro; background:none; color: white; font-size: 1vw;"></TD>
+                  <TD><INPUT TYPE=BUTTON VALUE=" K "   onclick="seek('K');" style="font-family: intro; background:none; color: white; font-size: 1vw;"></TD>
+                  <TD><INPUT TYPE=BUTTON VALUE=" L  "  onclick="seek('L');" style="font-family: intro; background:none; color: white; font-size: 1vw;"></TD>
+                  <TD><INPUT TYPE=BUTTON VALUE=" M "   onclick="seek('M');" style="font-family: intro; background:none; color: white; font-size: 1vw;"></TD>
+                  </div>
+                </TR>
+                <TR class="">
+                  <TD><INPUT TYPE=BUTTON VALUE=" N "   onclick="seek('N');" style="font-family: intro; background:none; color: white; font-size: 1vw;"></TD>
+                  <TD><INPUT TYPE=BUTTON VALUE=" O "   onclick="seek('O');" style="font-family: intro; background:none; color: white; font-size: 1vw;"></TD>
+                  <TD><INPUT TYPE=BUTTON VALUE=" P "   onclick="seek('P');" style="font-family: intro; background:none; color: white; font-size: 1vw;"></TD>
+                  <TD><INPUT TYPE=BUTTON VALUE=" Q "   onclick="seek('Q');" style="font-family: intro; background:none; color: white; font-size: 1vw;"></TD>
+                  <TD><INPUT TYPE=BUTTON VALUE=" R "   onclick="seek('R');" style="font-family: intro; background:none; color: white; font-size: 1vw;"></TD>
+                  <TD><INPUT TYPE=BUTTON VALUE=" S "   onclick="seek('S');" style="font-family: intro; background:none; color: white; font-size: 1vw;"></TD>
+                  <TD><INPUT TYPE=BUTTON VALUE=" T "   onclick="seek('T');" style="font-family: intro; background:none; color: white; font-size: 1vw;"></TD>
+                  <TD><INPUT TYPE=BUTTON VALUE=" U "   onclick="seek('U');" style="font-family: intro; background:none; color: white; font-size: 1vw;"></TD>
+                  <TD><INPUT TYPE=BUTTON VALUE=" V "   onclick="seek('V');" style="font-family: intro; background:none; color: white; font-size: 1vw;"></TD>
+                  <TD><INPUT TYPE=BUTTON VALUE=" W "   onclick="seek('W');" style="font-family: intro; background:none; color: white; font-size: 1vw;"></TD>
+                  <TD><INPUT TYPE=BUTTON VALUE=" X  "  onclick="seek('X');" style="font-family: intro; background:none; color: white; font-size: 1vw;"></TD>
+                  <TD><INPUT TYPE=BUTTON VALUE=" Y "   onclick="seek('Y');" style="font-family: intro; background:none; color: white; font-size: 1vw;"></TD>
+                  <TD><INPUT TYPE=BUTTON VALUE=" Z  "  onclick="seek('Z');" style="font-family: intro; background:none; color: white; font-size: 1vw;"></TD>
+                </TR>
+                </TABLE>
+                <button onclick="openFullscreen(),closeFullscreen()" class="go_full">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="#3500D3" class="bi bi-fullscreen" viewBox="0 0 16 16">
+                        <path d="M1.5 1a.5.5 0 0 0-.5.5v4a.5.5 0 0 1-1 0v-4A1.5 1.5 0 0 1 1.5 0h4a.5.5 0 0 1 0 1h-4zM10 .5a.5.5 0 0 1 .5-.5h4A1.5 1.5 0 0 1 16 1.5v4a.5.5 0 0 1-1 0v-4a.5.5 0 0 0-.5-.5h-4a.5.5 0 0 1-.5-.5zM.5 10a.5.5 0 0 1 .5.5v4a.5.5 0 0 0 .5.5h4a.5.5 0 0 1 0 1h-4A1.5 1.5 0 0 1 0 14.5v-4a.5.5 0 0 1 .5-.5zm15 0a.5.5 0 0 1 .5.5v4a1.5 1.5 0 0 1-1.5 1.5h-4a.5.5 0 0 1 0-1h4a.5.5 0 0 0 .5-.5v-4a.5.5 0 0 1 .5-.5z"/>
+                    </svg>
+                 </button>
+                </center>
+                </FORM>
+        </div>
+     </div>
+     <script src="logic.js"></script>
+    </body>
+</html>
